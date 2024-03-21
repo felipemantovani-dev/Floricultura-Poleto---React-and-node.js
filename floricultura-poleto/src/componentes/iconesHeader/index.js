@@ -3,6 +3,7 @@ import bag from '../../images/bag.svg'
 import styled from 'styled-components'
 
 const Icones = styled.ul `
+  list-style: none;
   display: flex;
   align-items: center;
   color: #f9cada;

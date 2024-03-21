@@ -7,7 +7,7 @@ const Opcoes = styled.ul`
 `
 const Opcao = styled.li`
     font-size: 16px;
-    color: #ff007f;
+    color: black;
     display: flex;
     justify-content: center;
     align-items: center;

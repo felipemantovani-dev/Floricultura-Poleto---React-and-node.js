@@ -5,18 +5,18 @@ import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle} from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-  body {
-    list-style: none;
+  body { 
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    list-style: none;
   }
 
   code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', 'Indie Flower', cursive',
       monospace;
   }
 `
