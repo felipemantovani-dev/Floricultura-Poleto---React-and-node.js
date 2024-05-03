@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import Home from './rotas/home';
 import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle} from 'styled-components'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Header from "./componentes/header";
+import Favoritos from './rotas/favoritos';
 
 const GlobalStyle = createGlobalStyle`
   body { 
@@ -23,10 +26,16 @@ const GlobalStyle = createGlobalStyle`
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+    <React.StrictMode>
     <GlobalStyle />
-    <App />
-  </React.StrictMode>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/favoritos" element={<Favoritos></Favoritos>} />
+      </Routes>
+    </BrowserRouter>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

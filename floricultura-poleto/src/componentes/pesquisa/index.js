@@ -1,7 +1,8 @@
 import Input from "../input";
 import styled from "styled-components";
-import { useState } from "react";
-import { produtos } from "./dadosPesquisa";
+import { useEffect, useState } from "react";
+import { getProdutos } from "../../servicos/produtos";
+import { postFavoritos } from "../../servicos/favoritos"
 
 const PesquisaContainer = styled.section`
   background: linear-gradient(45deg, #ee9ca7 0%, #ffdde1 100%);
@@ -42,8 +43,23 @@ const Resultado = styled.div`
 
 function Pesquisa() {
   const [produtoPesquisado, setProdutoPesquisado] = useState([]);
+  const [ produtos, setProdutos ] = useState([]);
 
-  console.log(produtoPesquisado);
+  useEffect( () => {
+    fetchProdutos()
+  }, [] )
+
+
+async function fetchProdutos () {
+  const produtosDaAPI = await getProdutos()
+  setProdutos(produtosDaAPI)
+}
+
+async function insertFavorito(id) {
+  await postFavoritos(id)
+  alert(`Produto de id:${id} inserido!`)
+}
+
 
   return (
     <PesquisaContainer>
@@ -60,7 +76,7 @@ function Pesquisa() {
         }}
       />
       {produtoPesquisado.map((produtos) => (
-        <Resultado>
+        <Resultado onClick={ () => insertFavorito(produtos.id)}>
           <img src={produtos.src} alt={produtos.alt}></img>
           <p>{produtos.nome}</p>
         </Resultado>
